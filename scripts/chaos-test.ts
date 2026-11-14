@@ -4,7 +4,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { pool } from "../src/database/db";
 
-const API_URL = process.env.API_URL ?? "http://localhost:3000";
+const API_URL = process.env.API_URL ?? "http://localhost:3001";
 
 const TOTAL_JOBS = Number(process.env.CHAOS_TOTAL_JOBS ?? 10_000);
 const REQUEST_CONCURRENCY = Number(
@@ -617,8 +617,45 @@ async function main(): Promise<void> {
 }
 
 main()
-  .catch((error: unknown) => {
+  .catch(async (error: unknown) => {
+    const message = error instanceof Error ? error.message : String(error);
+
     console.error("\nChaos test failed:", error);
+
+    const failureReport = {
+      runId,
+      recordedAt: new Date().toISOString(),
+      apiUrl: API_URL,
+      targetJobs: TOTAL_JOBS,
+      requestConcurrency: REQUEST_CONCURRENCY,
+      cancelPercent: CANCEL_PERCENT,
+      jobDurationMs: JOB_DURATION_MS,
+      completedSubmissions,
+      duplicateChecksPassed,
+      duplicateChecksFailed,
+      cancellationRequests,
+      cancellationErrors,
+      submissionFailures: requestFailures,
+      error: message,
+      note: "Partial failure report. Database verification may not have completed."
+    };
+
+    try {
+      await mkdir("docs", { recursive: true });
+
+      const filename = join("docs", `chaos-failure-${runId}.json`);
+
+      await writeFile(
+        filename,
+        JSON.stringify(failureReport, null, 2),
+        "utf8"
+      );
+
+      console.error(`Partial failure report saved to: ${filename}`);
+    } catch (reportError) {
+      console.error("Could not save chaos failure report:", reportError);
+    }
+
     process.exitCode = 1;
   })
   .finally(async () => {

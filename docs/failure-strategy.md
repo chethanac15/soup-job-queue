@@ -1,53 +1,33 @@
-# Failure Handling Strategy
+﻿# Failure Handling and Verification
 
-## 1. Double Claim
+## 1. Double claim
+Risk: two workers claim one job.
+Protection: transactional `FOR UPDATE SKIP LOCKED` and conditional state update.
+Status: TESTED — concurrent worker claim test confirms only one worker claims the test job.
 
-Risk: Two workers may attempt to claim the same job simultaneously.
+## 2. Zombie worker
+Risk: an expired worker resumes after a new claim.
+Protection: incrementing lease epoch and checking owner, epoch and lease before completion.
+Status: PARTIALLY TESTED — expired lease recovery and stale completion rejection tested; no full OS-level pause/resume experiment.
 
-Protection: PostgreSQL row-level locking with FOR UPDATE SKIP LOCKED, atomic claim transactions and conditional state updates.
+## 3. Cancellation/completion race
+Risk: cancellation and completion overlap.
+Protection: row locks, transactional state checks and cancellation flag.
+Status: PARTIALLY TESTED — cancellation during handler execution prevents effect; truly simultaneous race not independently stress-tested.
 
-Verification: Concurrent worker claim tests and ownership inspection.
+## 4. Duplicate request retry
+Risk: client retries a committed request.
+Protection: unique idempotency key and canonical payload hash.
+Status: TESTED — same-payload retry, changed-payload HTTP 409 and 10,000 chaos duplicate checks passed.
 
-## 2. Zombie Worker
+## 5. Transaction isolation
+Risk: concurrent state changes conflict.
+Protection: PostgreSQL READ COMMITTED with explicit row locks, atomic updates and unique constraints.
+Status: PARTIALLY TESTED — concurrent claim and cancellation paths tested; no exhaustive isolation/interleaving test.
 
-Risk: A worker may resume after its lease expires and another worker has claimed the same job.
+## 6. Clock skew
+Risk: worker clocks disagree.
+Protection: lease decisions use PostgreSQL `clock_timestamp()`.
+Status: PARTIALLY TESTED — database-time implementation verified; artificial clock offsets not injected.
 
-Protection: Incrementing fencing tokens and validating the current token before committing any effect or final state.
-
-Verification: Pause a worker, expire its lease, allow another worker to claim the job, then resume the original worker.
-
-## 3. Cancellation and Completion Race
-
-Risk: Cancellation and successful completion may occur concurrently.
-
-Protection: Row locking, conditional state transitions and an atomic completion transaction.
-
-Verification: Run concurrent cancellation and completion requests and inspect the final state and effects table.
-
-## 4. Duplicate Request Retry
-
-Risk: A client may retry a request after the original request has already committed.
-
-Protection: A unique idempotency key and payload hash comparison.
-
-Verification: Send concurrent requests with identical keys and payloads. Confirm that one job is created. Reuse the key with a different payload and verify HTTP 409.
-
-## 5. Transaction Isolation
-
-Risk: Concurrent transactions may observe or modify job state in unsafe ways.
-
-Protection: Explicit row locks, atomic updates, unique constraints and a documented PostgreSQL READ COMMITTED isolation strategy.
-
-Verification: Run concurrent claim, completion and cancellation tests.
-
-## 6. Clock Skew
-
-Risk: Worker machines may have different system clocks.
-
-Protection: PostgreSQL database time is used for lease creation, renewal and expiry decisions.
-
-Verification: Introduce artificial worker clock offsets and verify that recovery decisions remain based on database time.
-
-## Remaining Limitations
-
-The protections will be validated through integration tests and fault-injection experiments. External side effects outside PostgreSQL require separate idempotency and recovery mechanisms.
+External effects still require their own idempotency or outbox/inbox mechanism. Load and database-outage testing remain outstanding.

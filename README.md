@@ -1,22 +1,18 @@
-# Soup Job Queue
+﻿# Soup Job Queue
 
 PostgreSQL-backed job queue using Node.js, TypeScript and Express.
 
-## Features
-- Idempotent job creation
-- Job status, pagination and cancellation APIs
-- Multiple workers using PostgreSQL SKIP LOCKED
-- Worker leases, heartbeats and recovery
-- Fencing tokens to reject stale workers
-- Persistent job effects and execution history
+Features: idempotent creation, status and pagination APIs, cancellation, concurrent workers, leases, heartbeats, fencing tokens, recovery and persistent effects.
 
 ## Start
+Requirements: Docker Desktop and Node.js.
 
-Requirements: Docker Desktop.
+    npm install
+    Copy-Item .env.example .env
+    docker compose up --build -d
 
-    docker compose up --build
-
-API health: http://localhost:3001/health
+API: http://localhost:3001
+Health: http://localhost:3001/health
 
 ## API
 - POST /jobs
@@ -24,31 +20,44 @@ API health: http://localhost:3001/health
 - GET /jobs?limit=20
 - POST /jobs/:id/cancel
 
-## Tests
+Same idempotency key and payload returns the original job; a changed payload returns HTTP 409.
 
-    npm install
+## Tests
+Stop Compose workers before tests because integration tests share a database.
+
+    docker compose stop worker
     npm run build
     npm test
 
-## Chaos testing
+Vitest runs test files sequentially. Test logs:
+- docs/test-results-success-2026-11-14.log
+- docs/test-results-failed-cancellation-2026-11-14.log
 
-See scripts/chaos-test.ts and scripts/chaos-kill-workers.ps1.
-Raw results and logs are in docs/.
+## Chaos test
+The harness defaults to API port 3001 and 10,000 jobs.
 
-The recorded 10,000-job chaos test passed, with 132 confirmed worker SIGKILL signals during the test window.
+Start database and API:
+    docker compose up -d --build postgres api
 
-## Guarantee
+Set the API URL:
+    $env:API_URL = "http://localhost:3001"
 
-At-least-once execution. The simulated PostgreSQL effect is protected against duplicate committed rows using a unique job_id constraint and a transaction.
+Start eight workers:
+    docker compose -f docker-compose.yml -f docker-compose.workers.yml up --build -d --scale worker=8
 
-External side effects are not guaranteed exactly once.
+In one PowerShell window:
+    .\scripts\chaos-kill-workers.ps1 -DurationMinutes 30 -IntervalSeconds 2
 
-## Production verdict
+In another:
+    $env:API_URL = "http://localhost:3001"
+    npm run chaos
 
-DON'T SHIP at 100 RPS until load testing, latency measurement and production observability are completed.
+The controller checks for eight workers, waits 10 seconds, then attempts SIGKILL approximately every two seconds. Successful reports are docs/chaos-results-*.json; early failures attempt docs/chaos-failure-*.json.
 
-See docs/design.md, docs/failure-strategy.md, docs/test-results.md and docs/surprises-and-concerns.md.
+Recorded run: docs/chaos-results-2026-11-14T11-47-48-648Z.json.
+Kill log: docs/worker-kills-2026-11-14_17-18-18.log.
 
-## AI usage
+## Guarantee and verdict
+Execution is at least once. The simulated PostgreSQL effect is committed atomically with completion and protected by a unique job_id constraint. This does not guarantee exactly-once external effects.
 
-See docs/AI_USAGE.md.
+DON'T SHIP at 100 RPS until sustained load, latency, database saturation and observability testing are completed.
