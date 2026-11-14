@@ -4,6 +4,75 @@ A PostgreSQL-backed job queue built with Node.js, TypeScript and Express. This p
 
 **Repository:** https://github.com/chethanac15/soup-job-queue
 
+## Quick start
+
+You only need Git and Docker Desktop with Docker Compose enabled to run the application locally.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/chethanac15/soup-job-queue.git
+cd soup-job-queue
+```
+
+### 2. Build and start everything
+
+```bash
+docker compose up --build -d
+```
+
+That's it. Docker builds the application image and starts:
+
+- PostgreSQL 17
+- Express API
+- Four background workers
+
+No host Node.js installation, `npm install`, or manual database setup is required for the Dockerized application.
+
+### 3. Verify that everything is running
+
+```bash
+docker compose ps
+```
+
+Check the API health endpoint:
+
+```bash
+curl http://localhost:3001/health
+```
+
+The API is available at:
+
+**http://localhost:3001**
+
+### 4. View application logs
+
+```bash
+docker compose logs -f api
+```
+
+In another terminal:
+
+```bash
+docker compose logs -f worker
+```
+
+To stop the application without deleting stored data:
+
+```bash
+docker compose down
+```
+
+To remove the database volume and start with a fresh database:
+
+```bash
+docker compose down -v
+```
+
+**Warning:** `docker compose down -v` deletes the local PostgreSQL volume, including jobs, execution history and effects.
+
+---
+
 ## 1. Features
 
 - Job creation with idempotency keys and payload-conflict detection.
@@ -49,74 +118,7 @@ This does not guarantee exactly-once effects in external systems. External APIs 
 - Vitest and Supertest for integration tests
 - Docker and Docker Compose for local services and workers
 
-## 4. Run locally
-
-### Prerequisites
-
-- Git
-- Node.js and npm
-- Docker Desktop with Docker Compose enabled
-- PowerShell on Windows (used by the worker-kill controller)
-
-### Clone and install
-
-```powershell
-git clone https://github.com/chethanac15/soup-job-queue.git
-cd soup-job-queue
-
-npm install
-Copy-Item .env.example .env
-```
-
-The example environment file configures the local PostgreSQL connection:
-
-```env
-PORT=3000
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/soup_queue
-NODE_ENV=development
-```
-
-### Start the application
-
-```powershell
-docker compose up --build -d
-```
-
-The default Compose configuration starts PostgreSQL, the API and four workers.
-
-Check the containers:
-
-```powershell
-docker compose ps
-```
-
-Check the API health endpoint:
-
-```powershell
-Invoke-RestMethod http://localhost:3001/health
-```
-
-The API is available at:
-
-`http://localhost:3001`
-
-Health endpoint:
-
-`http://localhost:3001/health`
-
-Follow worker logs:
-
-```powershell
-docker compose logs -f worker
-```
-
-Follow API logs:
-
-```powershell
-docker compose logs -f api
-```
-
-## 5. API reference
+## 4. API reference
 
 All endpoints use JSON where a request body is required.
 
@@ -129,7 +131,7 @@ All endpoints use JSON where a request body is required.
 
 ### Create a job
 
-The idempotency key is supplied in the `Idempotency-Key` header. The request body contains a JSON `payload` object and an optional `maxAttempts` value.
+The idempotency key is supplied in the `Idempotency-Key` header. The request body contains a JSON payload object and an optional `maxAttempts` value.
 
 PowerShell example:
 
@@ -184,56 +186,79 @@ Invoke-RestMethod `
     -Uri "http://localhost:3001/jobs/$jobId/cancel"
 ```
 
-## 6. See a job execute and verify its effect
+## 5. Verify job execution and persistent effects
 
 With the API and workers running, create a job using the example above.
 
-Watch the worker logs in another PowerShell window:
+Watch the worker logs:
 
-```powershell
+```bash
 docker compose logs -f worker
 ```
 
 The worker logs show when a job starts and completes.
 
-Inspect the job records in PostgreSQL:
+Inspect job records in PostgreSQL:
 
-```powershell
+```bash
 docker compose exec postgres psql -U postgres -d soup_queue -c "SELECT id, status, attempts, worker_id, lease_epoch FROM jobs ORDER BY created_at DESC LIMIT 10;"
 ```
 
 Inspect recorded handler runs:
 
-```powershell
+```bash
 docker compose exec postgres psql -U postgres -d soup_queue -c "SELECT job_id, attempt, status FROM job_runs ORDER BY job_id LIMIT 10;"
 ```
 
 Inspect persistent effects:
 
-```powershell
+```bash
 docker compose exec postgres psql -U postgres -d soup_queue -c "SELECT job_id, result, created_at FROM job_effects ORDER BY created_at DESC LIMIT 10;"
 ```
 
-The `job_runs` table records handler execution attempts. The `job_effects` table records the simulated persistent side effect. This makes it possible to distinguish a job claim from an actual handler entry and a committed effect.
+The `job_runs` table records handler execution attempts. The `job_effects` table records the simulated persistent side effect.
 
-## 7. Build and integration tests
+This makes it possible to distinguish a job claim from an actual handler entry and a committed effect.
 
-The integration tests use PostgreSQL. Start the database and stop background Compose workers first, because the tests share a database and background workers could consume test jobs.
+## 6. Build and integration tests
+
+The integration tests use PostgreSQL. They should be run without background Compose workers or the API consuming test jobs.
+
+### Prerequisites for host-side tests
+
+- Node.js and npm
+- Docker Desktop with Docker Compose enabled
+
+Install dependencies:
+
+```bash
+npm ci
+```
+
+Copy the example environment file:
+
+PowerShell:
 
 ```powershell
+Copy-Item .env.example .env
+```
+
+Stop background workers and the API, leaving PostgreSQL available:
+
+```bash
 docker compose stop worker api
 docker compose up -d postgres
 ```
 
 Run the TypeScript build:
 
-```powershell
+```bash
 npm run build
 ```
 
-Run the integration tests:
+Run integration tests:
 
-```powershell
+```bash
 npm test
 ```
 
@@ -246,9 +271,9 @@ Test output is preserved in:
 - `docs/test-results-success-2026-11-14.log`
 - `docs/test-results-failed-cancellation-2026-11-14.log`
 
-The earlier failed output is intentionally retained. The cancellation test initially failed because parallel test files shared a database and a worker claimed another test's job. Sequential test execution resolved the test interference.
+The earlier failed output is intentionally retained. The cancellation test initially failed because parallel test files shared a database and a background worker claimed another test's job. Sequential test execution resolved the test interference.
 
-## 8. Reproduce the chaos test
+## 7. Reproduce the chaos test
 
 The chaos harness defaults to:
 
@@ -264,7 +289,14 @@ The chaos harness defaults to:
 
 The harness sends two concurrent POST requests with the same idempotency key for each job, checks that both requests resolve to the same job, and randomly requests cancellations while submissions are in progress.
 
-A separate PowerShell controller selects a random running worker and sends `SIGKILL` to its Node.js worker process. Docker's restart policy restarts the killed worker.
+A separate PowerShell controller selects a random running worker and sends SIGKILL to its Node.js worker process. Docker's restart policy restarts the killed worker.
+
+### Prerequisites
+
+- Docker Desktop with Docker Compose enabled
+- Node.js and npm installed on the host
+- PowerShell on Windows
+- Dependencies installed with `npm ci`
 
 ### Start eight workers
 
@@ -286,7 +318,9 @@ docker compose ps
 .\scripts\chaos-kill-workers.ps1 -DurationMinutes 30 -IntervalSeconds 2
 ```
 
-The controller checks that exactly eight workers are running, waits 10 seconds, then attempts a random worker kill approximately every two seconds. It records confirmed kills, unconfirmed attempts and controller errors in a timestamped log under `docs/`.
+The controller checks that exactly eight workers are running, waits 10 seconds, then attempts a random worker kill approximately every two seconds.
+
+It records confirmed kills, unconfirmed attempts and controller errors in a timestamped log under `docs/`.
 
 ### Terminal 2: Run the chaos harness
 
@@ -309,13 +343,13 @@ The harness checks:
 - No unfinished handler runs or invalid run states remain.
 - No request or cancellation errors occurred.
 
-The harness writes a timestamped JSON report under `docs/`. If it exits early, it attempts to write a partial failure report under ``docs/chaos-failure-*.json``.
+The harness writes a timestamped JSON report under `docs/`. If it exits early, it attempts to write a partial failure report under `docs/`.
 
-After the harness finishes, stop the kill controller with `Ctrl+C`. Its `finally` block records the final controller totals.
+After the harness finishes, stop the kill controller with Ctrl+C. Its `finally` block records the final controller totals.
 
-**Note:** The chaos script's built-in API default is port `3000`; the explicit `API_URL` setting above is required when using the Docker Compose host port `3001`.
+**Port note:** The chaos script's built-in API default is port `3000`; the explicit `API_URL` setting above is required when using the Docker Compose host port `3001`.
 
-## 9. Recorded chaos results
+## 8. Recorded chaos results
 
 One full 10,000-job chaos run is recorded. Smaller smoke-test runs are also preserved.
 
@@ -339,17 +373,19 @@ Three claims had no corresponding persisted handler-run record. This is consiste
 
 The repository preserves the recorded reports and test output, including failed results:
 
-- `docs/chaos-results-2026-11-14T11-47-48-648Z.json` � full 10,000-job run.
-- `docs/chaos-results-2026-11-14T11-46-58-929Z.json` � smoke run.
-- `docs/chaos-results-2026-11-13T11-57-58-329Z.json` � recorded run.
-- `docs/chaos-results-2026-11-13T12-09-09-247Z.json` � recorded run.
-- `docs/worker-kills-2026-11-14_17-18-18.log` � worker-kill controller output.
-- `docs/test-results-success-2026-11-14.log` � successful integration test output.
-- `docs/test-results-failed-cancellation-2026-11-14.log` � earlier failed integration test output.
+| File | Description |
+|---|---|
+| `docs/chaos-results-2026-11-14T11-47-48-648Z.json` | Full 10,000-job run |
+| `docs/chaos-results-2026-11-14T11-46-58-929Z.json` | Smoke run |
+| `docs/chaos-results-2026-11-13T11-57-58-329Z.json` | Recorded run |
+| `docs/chaos-results-2026-11-13T12-09-09-247Z.json` | Recorded run |
+| `docs/worker-kills-2026-11-14_17-18-18.log` | Worker-kill controller output |
+| `docs/test-results-success-2026-11-14.log` | Successful integration test output |
+| `docs/test-results-failed-cancellation-2026-11-14.log` | Earlier failed integration test output |
 
 The 10,000-job experiment was not rerun during the final documentation update. The historical reports are retained as recorded evidence, not presented as new runs.
 
-## 10. What the chaos test does not prove
+## 9. What the chaos test does not prove
 
 The experiment does not establish:
 
@@ -361,9 +397,7 @@ The experiment does not establish:
 - Full operating-system pause/resume behavior for stale workers.
 - Exactly-once effects in external systems.
 
-## 11. Silent failures and verification
-
-The following scenarios were checked:
+## 10. Silent failures and verification
 
 | Scenario | Verification |
 |---|---|
@@ -376,37 +410,63 @@ The following scenarios were checked:
 
 See `docs/failure-strategy.md` for the detailed verification notes.
 
-## 12. Design, concerns and AI disclosure
+## 11. Design, concerns and AI disclosure
 
 Additional assignment documentation:
 
-- `docs/design.md` � one-page system design.
-- `docs/surprises-and-concerns.md` � what the chaos experiment revealed and remaining concerns.
-- `docs/failure-strategy.md` � silent-failure verification.
-- `docs/AI_USAGE.md` � AI assistance, accepted suggestions and verification.
+- `docs/design.md` — one-page system design.
+- `docs/surprises-and-concerns.md` — what the chaos experiment revealed and remaining concerns.
+- `docs/failure-strategy.md` — silent-failure verification.
+- `docs/AI_USAGE.md` — AI assistance, accepted suggestions and verification.
 
-ChatGPT assisted with design review, test diagnosis, interpretation of chaos results and documentation. The developer reviewed and applied changes, addressed shared-database test interference, ran the build and integration tests, and preserved failed test output. The historical 10,000-job chaos run was not repeated during the final documentation update.
+ChatGPT assisted with design review, test diagnosis, interpretation of chaos results and documentation. The developer reviewed and applied changes, addressed shared-database test interference, ran the build and integration tests, and preserved failed test output.
 
-## 13. Verdict
+The historical 10,000-job chaos run was not repeated during the final documentation update.
+
+## 12. Verdict
 
 **DON'T SHIP at 100 requests per second yet.**
 
-Before shipping, run sustained load tests and measure throughput and latency, check PostgreSQL saturation and connection-pool behavior, test database-outage recovery, improve operational monitoring and stress cancellation/completion interleavings.
+Before shipping:
+
+- Run sustained load tests and measure throughput and latency.
+- Check PostgreSQL saturation and connection-pool behavior.
+- Test database-outage recovery.
+- Improve operational monitoring.
+- Stress cancellation/completion interleavings.
 
 The recorded chaos run provides evidence of worker recovery and protection against duplicate committed PostgreSQL effects. It is not a performance benchmark.
 
-## 14. Stop and reset
+---
 
-Stop containers without deleting the database volume:
+## Repository structure
 
-```powershell
-docker compose down
+```text
+soup-job-queue/
+├── docs/
+│   ├── AI_USAGE.md
+│   ├── architecture.md
+│   ├── design.md
+│   ├── failure-strategy.md
+│   ├── surprises-and-concerns.md
+│   ├── test-results.md
+│   └── ... chaos and test evidence
+├── scripts/
+│   ├── chaos-test.ts
+│   └── chaos-kill-workers.ps1
+├── src/
+├── tests/
+│   └── integration/
+├── Dockerfile
+├── docker-compose.yml
+├── docker-compose.workers.yml
+├── package.json
+└── README.md
 ```
 
-To remove the database volume and start with a fresh database:
+## Further reading
 
-```powershell
-docker compose down -v
-```
-
-**Warning:** `docker compose down -v` deletes the local PostgreSQL data volume, including stored jobs, run history and effects.
+- `docs/design.md` — design decisions and execution guarantees.
+- `docs/failure-strategy.md` — failure scenarios and verification.
+- `docs/surprises-and-concerns.md` — observations from chaos testing.
+- `docs/AI_USAGE.md` — AI usage disclosure.
