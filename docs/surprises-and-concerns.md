@@ -1,0 +1,7 @@
+# Surprises and Concerns
+
+The most important finding was that worker crashes can produce interrupted handler attempts even when the final job succeeds. In the 10,000-job chaos run, 126 recorded handler runs were interrupted and recovered. The final queue still reached 10,000 terminal jobs with no duplicate database effects. There were also three successful claims that did not produce persisted handler-run records, consistent with a worker dying after claiming but before recording handler entry. This is why claim attempts and handler executions must be measured separately.
+
+The test also demonstrates that at-least-once execution is different from exactly-once side effects. The unique effect constraint protects the simulated PostgreSQL effect, but an external API call could still happen twice if a worker crashes after the external call and before recording completion. Such integrations need external idempotency keys or an outbox pattern.
+
+The 10,000-job test is a finite local test, not a production capacity benchmark. It does not establish 100 RPS throughput, p95/p99 latency, behavior under database failure, or resilience over a long period. Before production, I would add metrics and alerts for queue age, expired leases, retries, worker heartbeats, database pool saturation and terminal failures, then run sustained load tests at and above the target rate.

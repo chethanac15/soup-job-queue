@@ -1,0 +1,543 @@
+2026-11-14 17:18:18 ==========================================
+2026-11-14 17:18:18 Starting worker crash controller.
+2026-11-14 17:18:18 Initial running workers: 8
+2026-11-14 17:18:18 Kill interval: approximately 2 seconds.
+2026-11-14 17:18:18 Maximum duration: 5 minutes.
+2026-11-14 17:18:18 Log file: C:\Users\HN443ws\soup-job-queue\soup-job-queue\docs\worker-kills-2026-11-14_17-18-18.log
+2026-11-14 17:18:18 ==========================================
+2026-11-14 17:18:18 Waiting 10 seconds for the chaos test to start.
+2026-11-14 17:18:28 Attempting SIGKILL in soup-job-queue-worker-2
+2026-11-14 17:18:29 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:18:29 SIGKILL sent to worker PID 7 in soup-job-queue-worker-2.
+2026-11-14 17:18:29 Confirmed kill signals: 1
+2026-11-14 17:18:31 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:18:31 Docker output: WORKER_KILL_SENT:8
+2026-11-14 17:18:31 SIGKILL sent to worker PID 8 in soup-job-queue-worker-1.
+2026-11-14 17:18:31 Confirmed kill signals: 2
+2026-11-14 17:18:33 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:18:33 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:18:33 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:18:33 Confirmed kill signals: 3
+2026-11-14 17:18:35 Attempting SIGKILL in soup-job-queue-worker-8
+2026-11-14 17:18:35 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:18:35 SIGKILL sent to worker PID 7 in soup-job-queue-worker-8.
+2026-11-14 17:18:35 Confirmed kill signals: 4
+2026-11-14 17:18:38 Attempting SIGKILL in soup-job-queue-worker-2
+2026-11-14 17:18:38 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:18:38 SIGKILL sent to worker PID 7 in soup-job-queue-worker-2.
+2026-11-14 17:18:38 Confirmed kill signals: 5
+2026-11-14 17:18:40 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:18:40 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:18:40 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:18:40 Confirmed kill signals: 6
+2026-11-14 17:18:42 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:18:42 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:18:42 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:18:42 Confirmed kill signals: 7
+2026-11-14 17:18:44 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:18:45 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:18:45 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:18:45 Confirmed kill signals: 8
+2026-11-14 17:18:47 Attempting SIGKILL in soup-job-queue-worker-7
+2026-11-14 17:18:47 Docker output: WORKER_KILL_SENT:8
+2026-11-14 17:18:47 SIGKILL sent to worker PID 8 in soup-job-queue-worker-7.
+2026-11-14 17:18:47 Confirmed kill signals: 9
+2026-11-14 17:18:49 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:18:49 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:18:49 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:18:49 Confirmed kill signals: 10
+2026-11-14 17:18:51 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:18:51 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:18:51 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:18:51 Confirmed kill signals: 11
+2026-11-14 17:18:53 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:18:54 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:18:54 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:18:54 Confirmed kill signals: 12
+2026-11-14 17:18:56 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:18:56 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:18:56 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:18:56 Confirmed kill signals: 13
+2026-11-14 17:18:58 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:18:58 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:18:58 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:18:58 Confirmed kill signals: 14
+2026-11-14 17:19:00 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:19:00 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:00 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:19:00 Confirmed kill signals: 15
+2026-11-14 17:19:03 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:19:03 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:03 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:19:03 Confirmed kill signals: 16
+2026-11-14 17:19:05 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:19:05 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:05 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:19:05 Confirmed kill signals: 17
+2026-11-14 17:19:07 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:19:07 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:07 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:19:07 Confirmed kill signals: 18
+2026-11-14 17:19:09 Attempting SIGKILL in soup-job-queue-worker-6
+2026-11-14 17:19:09 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:09 SIGKILL sent to worker PID 7 in soup-job-queue-worker-6.
+2026-11-14 17:19:09 Confirmed kill signals: 19
+2026-11-14 17:19:12 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:19:12 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:12 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:19:12 Confirmed kill signals: 20
+2026-11-14 17:19:14 Attempting SIGKILL in soup-job-queue-worker-2
+2026-11-14 17:19:14 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:14 SIGKILL sent to worker PID 7 in soup-job-queue-worker-2.
+2026-11-14 17:19:14 Confirmed kill signals: 21
+2026-11-14 17:19:16 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:19:16 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:16 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:19:16 Confirmed kill signals: 22
+2026-11-14 17:19:18 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:19:19 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:19 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:19:19 Confirmed kill signals: 23
+2026-11-14 17:19:21 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:19:21 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:21 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:19:21 Confirmed kill signals: 24
+2026-11-14 17:19:23 Attempting SIGKILL in soup-job-queue-worker-7
+2026-11-14 17:19:23 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:23 SIGKILL sent to worker PID 7 in soup-job-queue-worker-7.
+2026-11-14 17:19:23 Confirmed kill signals: 25
+2026-11-14 17:19:25 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:19:25 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:25 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:19:25 Confirmed kill signals: 26
+2026-11-14 17:19:28 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:19:28 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:28 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:19:28 Confirmed kill signals: 27
+2026-11-14 17:19:30 Attempting SIGKILL in soup-job-queue-worker-3
+2026-11-14 17:19:30 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:30 SIGKILL sent to worker PID 7 in soup-job-queue-worker-3.
+2026-11-14 17:19:30 Confirmed kill signals: 28
+2026-11-14 17:19:32 Attempting SIGKILL in soup-job-queue-worker-2
+2026-11-14 17:19:32 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:32 SIGKILL sent to worker PID 7 in soup-job-queue-worker-2.
+2026-11-14 17:19:32 Confirmed kill signals: 29
+2026-11-14 17:19:34 Attempting SIGKILL in soup-job-queue-worker-2
+2026-11-14 17:19:35 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:35 SIGKILL sent to worker PID 7 in soup-job-queue-worker-2.
+2026-11-14 17:19:35 Confirmed kill signals: 30
+2026-11-14 17:19:37 Attempting SIGKILL in soup-job-queue-worker-7
+2026-11-14 17:19:37 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:37 SIGKILL sent to worker PID 7 in soup-job-queue-worker-7.
+2026-11-14 17:19:37 Confirmed kill signals: 31
+2026-11-14 17:19:39 Attempting SIGKILL in soup-job-queue-worker-8
+2026-11-14 17:19:39 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:39 SIGKILL sent to worker PID 7 in soup-job-queue-worker-8.
+2026-11-14 17:19:39 Confirmed kill signals: 32
+2026-11-14 17:19:41 Attempting SIGKILL in soup-job-queue-worker-2
+2026-11-14 17:19:42 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:42 SIGKILL sent to worker PID 7 in soup-job-queue-worker-2.
+2026-11-14 17:19:42 Confirmed kill signals: 33
+2026-11-14 17:19:44 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:19:44 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:44 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:19:44 Confirmed kill signals: 34
+2026-11-14 17:19:46 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:19:46 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:46 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:19:46 Confirmed kill signals: 35
+2026-11-14 17:19:48 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:19:49 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:49 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:19:49 Confirmed kill signals: 36
+2026-11-14 17:19:51 Attempting SIGKILL in soup-job-queue-worker-2
+2026-11-14 17:19:51 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:51 SIGKILL sent to worker PID 7 in soup-job-queue-worker-2.
+2026-11-14 17:19:51 Confirmed kill signals: 37
+2026-11-14 17:19:53 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:19:53 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:53 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:19:53 Confirmed kill signals: 38
+2026-11-14 17:19:55 Attempting SIGKILL in soup-job-queue-worker-3
+2026-11-14 17:19:56 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:56 SIGKILL sent to worker PID 7 in soup-job-queue-worker-3.
+2026-11-14 17:19:56 Confirmed kill signals: 39
+2026-11-14 17:19:58 Attempting SIGKILL in soup-job-queue-worker-6
+2026-11-14 17:19:58 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:19:58 SIGKILL sent to worker PID 7 in soup-job-queue-worker-6.
+2026-11-14 17:19:58 Confirmed kill signals: 40
+2026-11-14 17:20:00 Attempting SIGKILL in soup-job-queue-worker-3
+2026-11-14 17:20:00 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:00 SIGKILL sent to worker PID 7 in soup-job-queue-worker-3.
+2026-11-14 17:20:00 Confirmed kill signals: 41
+2026-11-14 17:20:02 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:20:02 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:02 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:20:02 Confirmed kill signals: 42
+2026-11-14 17:20:05 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:20:05 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:05 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:20:05 Confirmed kill signals: 43
+2026-11-14 17:20:07 Attempting SIGKILL in soup-job-queue-worker-3
+2026-11-14 17:20:07 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:07 SIGKILL sent to worker PID 7 in soup-job-queue-worker-3.
+2026-11-14 17:20:07 Confirmed kill signals: 44
+2026-11-14 17:20:09 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:20:09 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:09 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:20:09 Confirmed kill signals: 45
+2026-11-14 17:20:11 Attempting SIGKILL in soup-job-queue-worker-3
+2026-11-14 17:20:12 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:12 SIGKILL sent to worker PID 7 in soup-job-queue-worker-3.
+2026-11-14 17:20:12 Confirmed kill signals: 46
+2026-11-14 17:20:14 Attempting SIGKILL in soup-job-queue-worker-3
+2026-11-14 17:20:14 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:14 SIGKILL sent to worker PID 7 in soup-job-queue-worker-3.
+2026-11-14 17:20:14 Confirmed kill signals: 47
+2026-11-14 17:20:16 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:20:16 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:16 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:20:16 Confirmed kill signals: 48
+2026-11-14 17:20:18 Attempting SIGKILL in soup-job-queue-worker-2
+2026-11-14 17:20:19 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:19 SIGKILL sent to worker PID 7 in soup-job-queue-worker-2.
+2026-11-14 17:20:19 Confirmed kill signals: 49
+2026-11-14 17:20:21 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:20:21 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:21 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:20:21 Confirmed kill signals: 50
+2026-11-14 17:20:23 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:20:23 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:23 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:20:23 Confirmed kill signals: 51
+2026-11-14 17:20:25 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:20:25 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:25 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:20:25 Confirmed kill signals: 52
+2026-11-14 17:20:28 Attempting SIGKILL in soup-job-queue-worker-7
+2026-11-14 17:20:28 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:28 SIGKILL sent to worker PID 7 in soup-job-queue-worker-7.
+2026-11-14 17:20:28 Confirmed kill signals: 53
+2026-11-14 17:20:30 Attempting SIGKILL in soup-job-queue-worker-3
+2026-11-14 17:20:30 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:30 SIGKILL sent to worker PID 7 in soup-job-queue-worker-3.
+2026-11-14 17:20:30 Confirmed kill signals: 54
+2026-11-14 17:20:32 Attempting SIGKILL in soup-job-queue-worker-7
+2026-11-14 17:20:32 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:32 SIGKILL sent to worker PID 7 in soup-job-queue-worker-7.
+2026-11-14 17:20:32 Confirmed kill signals: 55
+2026-11-14 17:20:34 Attempting SIGKILL in soup-job-queue-worker-7
+2026-11-14 17:20:34 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:34 SIGKILL sent to worker PID 7 in soup-job-queue-worker-7.
+2026-11-14 17:20:34 Confirmed kill signals: 56
+2026-11-14 17:20:37 Attempting SIGKILL in soup-job-queue-worker-8
+2026-11-14 17:20:37 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:37 SIGKILL sent to worker PID 7 in soup-job-queue-worker-8.
+2026-11-14 17:20:37 Confirmed kill signals: 57
+2026-11-14 17:20:39 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:20:39 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:39 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:20:39 Confirmed kill signals: 58
+2026-11-14 17:20:41 Attempting SIGKILL in soup-job-queue-worker-6
+2026-11-14 17:20:41 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:41 SIGKILL sent to worker PID 7 in soup-job-queue-worker-6.
+2026-11-14 17:20:41 Confirmed kill signals: 59
+2026-11-14 17:20:43 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:20:44 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:44 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:20:44 Confirmed kill signals: 60
+2026-11-14 17:20:46 Attempting SIGKILL in soup-job-queue-worker-7
+2026-11-14 17:20:46 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:46 SIGKILL sent to worker PID 7 in soup-job-queue-worker-7.
+2026-11-14 17:20:46 Confirmed kill signals: 61
+2026-11-14 17:20:48 Attempting SIGKILL in soup-job-queue-worker-3
+2026-11-14 17:20:48 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:48 SIGKILL sent to worker PID 7 in soup-job-queue-worker-3.
+2026-11-14 17:20:48 Confirmed kill signals: 62
+2026-11-14 17:20:50 Attempting SIGKILL in soup-job-queue-worker-8
+2026-11-14 17:20:50 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:50 SIGKILL sent to worker PID 7 in soup-job-queue-worker-8.
+2026-11-14 17:20:50 Confirmed kill signals: 63
+2026-11-14 17:20:52 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:20:53 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:53 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:20:53 Confirmed kill signals: 64
+2026-11-14 17:20:55 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:20:55 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:55 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:20:55 Confirmed kill signals: 65
+2026-11-14 17:20:57 Attempting SIGKILL in soup-job-queue-worker-8
+2026-11-14 17:20:57 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:57 SIGKILL sent to worker PID 7 in soup-job-queue-worker-8.
+2026-11-14 17:20:57 Confirmed kill signals: 66
+2026-11-14 17:20:59 Attempting SIGKILL in soup-job-queue-worker-6
+2026-11-14 17:20:59 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:20:59 SIGKILL sent to worker PID 7 in soup-job-queue-worker-6.
+2026-11-14 17:20:59 Confirmed kill signals: 67
+2026-11-14 17:21:02 Attempting SIGKILL in soup-job-queue-worker-8
+2026-11-14 17:21:02 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:02 SIGKILL sent to worker PID 7 in soup-job-queue-worker-8.
+2026-11-14 17:21:02 Confirmed kill signals: 68
+2026-11-14 17:21:04 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:21:04 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:04 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:21:04 Confirmed kill signals: 69
+2026-11-14 17:21:06 Attempting SIGKILL in soup-job-queue-worker-2
+2026-11-14 17:21:06 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:06 SIGKILL sent to worker PID 7 in soup-job-queue-worker-2.
+2026-11-14 17:21:06 Confirmed kill signals: 70
+2026-11-14 17:21:08 Attempting SIGKILL in soup-job-queue-worker-8
+2026-11-14 17:21:08 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:08 SIGKILL sent to worker PID 7 in soup-job-queue-worker-8.
+2026-11-14 17:21:08 Confirmed kill signals: 71
+2026-11-14 17:21:11 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:21:11 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:11 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:21:11 Confirmed kill signals: 72
+2026-11-14 17:21:13 Attempting SIGKILL in soup-job-queue-worker-3
+2026-11-14 17:21:13 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:13 SIGKILL sent to worker PID 7 in soup-job-queue-worker-3.
+2026-11-14 17:21:13 Confirmed kill signals: 73
+2026-11-14 17:21:15 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:21:15 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:15 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:21:15 Confirmed kill signals: 74
+2026-11-14 17:21:17 Attempting SIGKILL in soup-job-queue-worker-8
+2026-11-14 17:21:17 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:17 SIGKILL sent to worker PID 7 in soup-job-queue-worker-8.
+2026-11-14 17:21:17 Confirmed kill signals: 75
+2026-11-14 17:21:20 Attempting SIGKILL in soup-job-queue-worker-6
+2026-11-14 17:21:20 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:20 SIGKILL sent to worker PID 7 in soup-job-queue-worker-6.
+2026-11-14 17:21:20 Confirmed kill signals: 76
+2026-11-14 17:21:22 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:21:22 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:22 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:21:22 Confirmed kill signals: 77
+2026-11-14 17:21:24 Attempting SIGKILL in soup-job-queue-worker-7
+2026-11-14 17:21:24 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:24 SIGKILL sent to worker PID 7 in soup-job-queue-worker-7.
+2026-11-14 17:21:24 Confirmed kill signals: 78
+2026-11-14 17:21:26 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:21:27 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:27 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:21:27 Confirmed kill signals: 79
+2026-11-14 17:21:29 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:21:29 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:29 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:21:29 Confirmed kill signals: 80
+2026-11-14 17:21:31 Attempting SIGKILL in soup-job-queue-worker-2
+2026-11-14 17:21:31 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:31 SIGKILL sent to worker PID 7 in soup-job-queue-worker-2.
+2026-11-14 17:21:31 Confirmed kill signals: 81
+2026-11-14 17:21:33 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:21:33 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:33 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:21:33 Confirmed kill signals: 82
+2026-11-14 17:21:35 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:21:36 Docker output: WORKER_KILL_SENT:8
+2026-11-14 17:21:36 SIGKILL sent to worker PID 8 in soup-job-queue-worker-5.
+2026-11-14 17:21:36 Confirmed kill signals: 83
+2026-11-14 17:21:38 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:21:38 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:38 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:21:38 Confirmed kill signals: 84
+2026-11-14 17:21:40 Attempting SIGKILL in soup-job-queue-worker-7
+2026-11-14 17:21:40 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:40 SIGKILL sent to worker PID 7 in soup-job-queue-worker-7.
+2026-11-14 17:21:40 Confirmed kill signals: 85
+2026-11-14 17:21:42 Attempting SIGKILL in soup-job-queue-worker-7
+2026-11-14 17:21:42 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:42 SIGKILL sent to worker PID 7 in soup-job-queue-worker-7.
+2026-11-14 17:21:42 Confirmed kill signals: 86
+2026-11-14 17:21:45 Attempting SIGKILL in soup-job-queue-worker-3
+2026-11-14 17:21:45 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:45 SIGKILL sent to worker PID 7 in soup-job-queue-worker-3.
+2026-11-14 17:21:45 Confirmed kill signals: 87
+2026-11-14 17:21:47 Attempting SIGKILL in soup-job-queue-worker-7
+2026-11-14 17:21:47 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:47 SIGKILL sent to worker PID 7 in soup-job-queue-worker-7.
+2026-11-14 17:21:47 Confirmed kill signals: 88
+2026-11-14 17:21:49 Attempting SIGKILL in soup-job-queue-worker-3
+2026-11-14 17:21:49 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:49 SIGKILL sent to worker PID 7 in soup-job-queue-worker-3.
+2026-11-14 17:21:49 Confirmed kill signals: 89
+2026-11-14 17:21:51 Attempting SIGKILL in soup-job-queue-worker-2
+2026-11-14 17:21:51 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:51 SIGKILL sent to worker PID 7 in soup-job-queue-worker-2.
+2026-11-14 17:21:51 Confirmed kill signals: 90
+2026-11-14 17:21:54 Attempting SIGKILL in soup-job-queue-worker-6
+2026-11-14 17:21:54 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:54 SIGKILL sent to worker PID 7 in soup-job-queue-worker-6.
+2026-11-14 17:21:54 Confirmed kill signals: 91
+2026-11-14 17:21:56 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:21:56 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:56 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:21:56 Confirmed kill signals: 92
+2026-11-14 17:21:58 Attempting SIGKILL in soup-job-queue-worker-7
+2026-11-14 17:21:58 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:21:58 SIGKILL sent to worker PID 7 in soup-job-queue-worker-7.
+2026-11-14 17:21:58 Confirmed kill signals: 93
+2026-11-14 17:22:00 Attempting SIGKILL in soup-job-queue-worker-2
+2026-11-14 17:22:01 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:01 SIGKILL sent to worker PID 7 in soup-job-queue-worker-2.
+2026-11-14 17:22:01 Confirmed kill signals: 94
+2026-11-14 17:22:03 Attempting SIGKILL in soup-job-queue-worker-7
+2026-11-14 17:22:03 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:03 SIGKILL sent to worker PID 7 in soup-job-queue-worker-7.
+2026-11-14 17:22:03 Confirmed kill signals: 95
+2026-11-14 17:22:05 Attempting SIGKILL in soup-job-queue-worker-8
+2026-11-14 17:22:05 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:05 SIGKILL sent to worker PID 7 in soup-job-queue-worker-8.
+2026-11-14 17:22:05 Confirmed kill signals: 96
+2026-11-14 17:22:07 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:22:07 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:07 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:22:07 Confirmed kill signals: 97
+2026-11-14 17:22:09 Attempting SIGKILL in soup-job-queue-worker-2
+2026-11-14 17:22:10 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:10 SIGKILL sent to worker PID 7 in soup-job-queue-worker-2.
+2026-11-14 17:22:10 Confirmed kill signals: 98
+2026-11-14 17:22:12 Attempting SIGKILL in soup-job-queue-worker-7
+2026-11-14 17:22:12 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:12 SIGKILL sent to worker PID 7 in soup-job-queue-worker-7.
+2026-11-14 17:22:12 Confirmed kill signals: 99
+2026-11-14 17:22:14 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:22:14 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:14 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:22:14 Confirmed kill signals: 100
+2026-11-14 17:22:16 Attempting SIGKILL in soup-job-queue-worker-8
+2026-11-14 17:22:16 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:16 SIGKILL sent to worker PID 7 in soup-job-queue-worker-8.
+2026-11-14 17:22:16 Confirmed kill signals: 101
+2026-11-14 17:22:19 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:22:19 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:19 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:22:19 Confirmed kill signals: 102
+2026-11-14 17:22:21 Attempting SIGKILL in soup-job-queue-worker-8
+2026-11-14 17:22:21 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:21 SIGKILL sent to worker PID 7 in soup-job-queue-worker-8.
+2026-11-14 17:22:21 Confirmed kill signals: 103
+2026-11-14 17:22:23 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:22:23 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:23 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:22:23 Confirmed kill signals: 104
+2026-11-14 17:22:25 Attempting SIGKILL in soup-job-queue-worker-7
+2026-11-14 17:22:25 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:25 SIGKILL sent to worker PID 7 in soup-job-queue-worker-7.
+2026-11-14 17:22:25 Confirmed kill signals: 105
+2026-11-14 17:22:28 Attempting SIGKILL in soup-job-queue-worker-8
+2026-11-14 17:22:28 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:28 SIGKILL sent to worker PID 7 in soup-job-queue-worker-8.
+2026-11-14 17:22:28 Confirmed kill signals: 106
+2026-11-14 17:22:30 Attempting SIGKILL in soup-job-queue-worker-6
+2026-11-14 17:22:30 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:30 SIGKILL sent to worker PID 7 in soup-job-queue-worker-6.
+2026-11-14 17:22:30 Confirmed kill signals: 107
+2026-11-14 17:22:32 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:22:32 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:32 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:22:32 Confirmed kill signals: 108
+2026-11-14 17:22:34 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:22:34 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:34 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:22:34 Confirmed kill signals: 109
+2026-11-14 17:22:37 Attempting SIGKILL in soup-job-queue-worker-2
+2026-11-14 17:22:37 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:37 SIGKILL sent to worker PID 7 in soup-job-queue-worker-2.
+2026-11-14 17:22:37 Confirmed kill signals: 110
+2026-11-14 17:22:39 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:22:39 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:39 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:22:39 Confirmed kill signals: 111
+2026-11-14 17:22:41 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:22:41 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:41 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:22:41 Confirmed kill signals: 112
+2026-11-14 17:22:43 Attempting SIGKILL in soup-job-queue-worker-7
+2026-11-14 17:22:43 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:43 SIGKILL sent to worker PID 7 in soup-job-queue-worker-7.
+2026-11-14 17:22:43 Confirmed kill signals: 113
+2026-11-14 17:22:46 Attempting SIGKILL in soup-job-queue-worker-3
+2026-11-14 17:22:46 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:46 SIGKILL sent to worker PID 7 in soup-job-queue-worker-3.
+2026-11-14 17:22:46 Confirmed kill signals: 114
+2026-11-14 17:22:48 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:22:48 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:48 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:22:48 Confirmed kill signals: 115
+2026-11-14 17:22:50 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:22:50 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:50 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:22:50 Confirmed kill signals: 116
+2026-11-14 17:22:52 Attempting SIGKILL in soup-job-queue-worker-7
+2026-11-14 17:22:53 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:53 SIGKILL sent to worker PID 7 in soup-job-queue-worker-7.
+2026-11-14 17:22:53 Confirmed kill signals: 117
+2026-11-14 17:22:55 Attempting SIGKILL in soup-job-queue-worker-8
+2026-11-14 17:22:55 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:55 SIGKILL sent to worker PID 7 in soup-job-queue-worker-8.
+2026-11-14 17:22:55 Confirmed kill signals: 118
+2026-11-14 17:22:57 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:22:57 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:57 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:22:57 Confirmed kill signals: 119
+2026-11-14 17:22:59 Attempting SIGKILL in soup-job-queue-worker-6
+2026-11-14 17:22:59 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:22:59 SIGKILL sent to worker PID 7 in soup-job-queue-worker-6.
+2026-11-14 17:22:59 Confirmed kill signals: 120
+2026-11-14 17:23:02 Attempting SIGKILL in soup-job-queue-worker-8
+2026-11-14 17:23:02 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:23:02 SIGKILL sent to worker PID 7 in soup-job-queue-worker-8.
+2026-11-14 17:23:02 Confirmed kill signals: 121
+2026-11-14 17:23:04 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:23:04 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:23:04 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:23:04 Confirmed kill signals: 122
+2026-11-14 17:23:06 Attempting SIGKILL in soup-job-queue-worker-4
+2026-11-14 17:23:06 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:23:06 SIGKILL sent to worker PID 7 in soup-job-queue-worker-4.
+2026-11-14 17:23:06 Confirmed kill signals: 123
+2026-11-14 17:23:08 Attempting SIGKILL in soup-job-queue-worker-3
+2026-11-14 17:23:09 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:23:09 SIGKILL sent to worker PID 7 in soup-job-queue-worker-3.
+2026-11-14 17:23:09 Confirmed kill signals: 124
+2026-11-14 17:23:11 Attempting SIGKILL in soup-job-queue-worker-6
+2026-11-14 17:23:11 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:23:11 SIGKILL sent to worker PID 7 in soup-job-queue-worker-6.
+2026-11-14 17:23:11 Confirmed kill signals: 125
+2026-11-14 17:23:13 Attempting SIGKILL in soup-job-queue-worker-6
+2026-11-14 17:23:13 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:23:13 SIGKILL sent to worker PID 7 in soup-job-queue-worker-6.
+2026-11-14 17:23:13 Confirmed kill signals: 126
+2026-11-14 17:23:15 Attempting SIGKILL in soup-job-queue-worker-8
+2026-11-14 17:23:15 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:23:15 SIGKILL sent to worker PID 7 in soup-job-queue-worker-8.
+2026-11-14 17:23:15 Confirmed kill signals: 127
+2026-11-14 17:23:18 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:23:18 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:23:18 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:23:18 Confirmed kill signals: 128
+2026-11-14 17:23:20 Attempting SIGKILL in soup-job-queue-worker-8
+2026-11-14 17:23:20 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:23:20 SIGKILL sent to worker PID 7 in soup-job-queue-worker-8.
+2026-11-14 17:23:20 Confirmed kill signals: 129
+2026-11-14 17:23:22 Attempting SIGKILL in soup-job-queue-worker-2
+2026-11-14 17:23:22 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:23:22 SIGKILL sent to worker PID 7 in soup-job-queue-worker-2.
+2026-11-14 17:23:22 Confirmed kill signals: 130
+2026-11-14 17:23:24 Attempting SIGKILL in soup-job-queue-worker-1
+2026-11-14 17:23:25 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:23:25 SIGKILL sent to worker PID 7 in soup-job-queue-worker-1.
+2026-11-14 17:23:25 Confirmed kill signals: 131
+2026-11-14 17:23:27 Attempting SIGKILL in soup-job-queue-worker-5
+2026-11-14 17:23:27 Docker output: WORKER_KILL_SENT:7
+2026-11-14 17:23:27 SIGKILL sent to worker PID 7 in soup-job-queue-worker-5.
+2026-11-14 17:23:27 Confirmed kill signals: 132
+2026-11-14 17:23:29 ==========================================
+2026-11-14 17:23:29 Worker crash controller stopped.
+2026-11-14 17:23:29 Confirmed SIGKILL signals: 132
+2026-11-14 17:23:29 Unconfirmed attempts: 0
+2026-11-14 17:23:29 Controller errors: 0
+2026-11-14 17:23:29 Full log: C:\Users\HN443ws\soup-job-queue\soup-job-queue\docs\worker-kills-2026-11-14_17-18-18.log
+2026-11-14 17:23:29 ==========================================

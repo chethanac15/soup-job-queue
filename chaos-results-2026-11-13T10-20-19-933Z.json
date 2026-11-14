@@ -1,0 +1,46 @@
+{
+  "runId": "2026-11-13T10-20-19-933Z",
+  "createdAt": "2026-11-13T10:20:23.244Z",
+  "configuration": {
+    "targetJobs": 50,
+    "requestConcurrency": 40,
+    "cancellationPercent": 10,
+    "jobDurationMs": 250,
+    "apiUrl": "http://localhost:3000"
+  },
+  "recordedJobs": 50,
+  "duplicateChecksPassed": 50,
+  "duplicateChecksFailed": 0,
+  "cancellationRequests": 5,
+  "cancellationErrors": 0,
+  "completedWithinTimeout": true,
+  "statusCounts": [
+    {
+      "status": "cancelled",
+      "count": 5
+    },
+    {
+      "status": "succeeded",
+      "count": 45
+    }
+  ],
+  "totalAttempts": 46,
+  "failedJobs": 0,
+  "activeJobs": 0,
+  "effectRows": 45,
+  "succeededWithoutEffect": 0,
+  "effectsOnUnsuccessfulJobs": 0,
+  "duplicateEffectGroups": 0,
+  "submissionErrors": [],
+  "checks": {
+    "allJobsRecorded": true,
+    "duplicateRetriesCorrect": true,
+    "noActiveJobs": true,
+    "completedWithinTimeout": true,
+    "succeededJobsHaveEffects": true,
+    "noEffectsOnUnsuccessfulJobs": true,
+    "noDuplicateEffects": true,
+    "noSubmissionErrors": true
+  },
+  "allChecksPassed": true
+}

@@ -1,0 +1,76 @@
+{
+  "runId": "2026-11-14T11-46-58-929Z",
+  "createdAt": "2026-11-14T11:47:02.262Z",
+  "configuration": {
+    "targetJobs": 50,
+    "requestConcurrency": 10,
+    "cancellationPercent": 10,
+    "jobDurationMs": 250,
+    "apiUrl": "http://localhost:3000"
+  },
+  "recordedJobs": 50,
+  "completedSubmissions": 50,
+  "duplicateChecksPassed": 50,
+  "duplicateChecksFailed": 0,
+  "cancellationRequests": 6,
+  "cancellationErrors": 0,
+  "completedWithinTimeout": true,
+  "statusCounts": [
+    {
+      "status": "cancelled",
+      "count": 6
+    },
+    {
+      "status": "succeeded",
+      "count": 44
+    }
+  ],
+  "totalClaimAttempts": 44,
+  "handlerRuns": {
+    "total": 44,
+    "jobsWithHandlerRuns": 44,
+    "started": 0,
+    "succeeded": 44,
+    "failed": 0,
+    "interrupted": 0,
+    "cancelled": 0
+  },
+  "failedJobs": 0,
+  "activeJobs": 0,
+  "effectRows": 44,
+  "succeededWithoutEffect": 0,
+  "effectsOnUnsuccessfulJobs": 0,
+  "duplicateEffectGroups": 0,
+  "runIntegrity": {
+    "unfinishedRuns": 0,
+    "successfulJobsWithoutSuccessfulRun": 0,
+    "successfulRunsForNonSuccessfulJobs": 0,
+    "futureRunRecords": 0,
+    "invalidRunStatuses": 0
+  },
+  "submissionErrors": [],
+  "checks": {
+    "allJobsRecorded": true,
+    "duplicateRetriesCorrect": true,
+    "noActiveJobs": true,
+    "completedWithinTimeout": true,
+    "succeededJobsHaveEffects": true,
+    "noEffectsOnUnsuccessfulJobs": true,
+    "noDuplicateEffects": true,
+    "noSubmissionErrors": true,
+    "noCancellationErrors": true,
+    "noUnfinishedHandlerRuns": true,
+    "noSuccessfulJobsMissingSuccessfulRun": true,
+    "noSuccessfulRunsForUnsuccessfulJobs": true,
+    "noFutureRunRecords": true,
+    "noInvalidRunStatuses": true,
+    "handlerRunsDoNotExceedClaims": true
+  },
+  "allChecksPassed": true,
+  "interpretation": {
+    "claimAttempts": "SUM(jobs.attempts) counts successful claims. It is not the number of handler executions.",
+    "handlerRuns": "COUNT(job_runs) records handler entries successfully persisted by startJobRun. A worker killed after claiming but before recording its handler entry is not counted as a handler run. A recorded run killed before completion is marked interrupted after lease recovery.",
+    "executionGuarantee": "The queue provides at-least-once execution. The unique job_effects.job_id constraint and fenced completion transaction protect the tested database effect from duplicate commits.",
+    "limitation": "This harness validates the database-backed simulated effect. It does not prove exactly-once behavior for external side effects such as sending email or calling third-party APIs."
+  }
+}

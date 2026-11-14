@@ -1,0 +1,52 @@
+{
+  "runId": "2026-11-13T11-57-58-329Z",
+  "createdAt": "2026-11-13T11:58:01.609Z",
+  "configuration": {
+    "targetJobs": 50,
+    "requestConcurrency": 10,
+    "cancellationPercent": 10,
+    "jobDurationMs": 250,
+    "apiUrl": "http://localhost:3000"
+  },
+  "recordedJobs": 50,
+  "completedSubmissions": 50,
+  "duplicateChecksPassed": 50,
+  "duplicateChecksFailed": 0,
+  "cancellationRequests": 7,
+  "cancellationErrors": 0,
+  "completedWithinTimeout": true,
+  "statusCounts": [
+    {
+      "status": "cancelled",
+      "count": 7
+    },
+    {
+      "status": "succeeded",
+      "count": 43
+    }
+  ],
+  "totalClaimAttempts": 43,
+  "failedJobs": 0,
+  "activeJobs": 0,
+  "effectRows": 43,
+  "succeededWithoutEffect": 0,
+  "effectsOnUnsuccessfulJobs": 0,
+  "duplicateEffectGroups": 0,
+  "submissionErrors": [],
+  "checks": {
+    "allJobsRecorded": true,
+    "duplicateRetriesCorrect": true,
+    "noActiveJobs": true,
+    "completedWithinTimeout": true,
+    "succeededJobsHaveEffects": true,
+    "noEffectsOnUnsuccessfulJobs": true,
+    "noDuplicateEffects": true,
+    "noSubmissionErrors": true,
+    "noCancellationErrors": true
+  },
+  "allChecksPassed": true,
+  "interpretation": {
+    "claimAttempts": "SUM(jobs.attempts) counts successful job claims, including claims whose workers later crashed. It is a claim-attempt count, not an independently instrumented count of handler entries.",
+    "executionGuarantee": "The queue provides at-least-once execution. The unique job_effects.job_id constraint and fenced completion transaction protect the tested database effect from duplicate commits."
+  }
+}
