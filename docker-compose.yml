@@ -1,8 +1,6 @@
-
 services:
   postgres:
     image: postgres:17
-    container_name: soup-postgres
     restart: unless-stopped
     environment:
       POSTGRES_USER: postgres
@@ -12,11 +10,54 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./src/database/schema.sql:/docker-entrypoint-initdb.d/001-schema.sql:ro
+      - ./src/database/migrations/002_job_runs.sql:/docker-entrypoint-initdb.d/002-job-runs.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d soup_queue"]
       interval: 5s
       timeout: 5s
       retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["node", "--import", "tsx", "src/server.ts"]
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/soup_queue
+    ports:
+      - "3001:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3000/health').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["node", "--import", "tsx", "src/workers/worker-main.ts"]
+    init: true
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/soup_queue
+    depends_on:
+      postgres:
+        condition: service_healthy
+    deploy:
+      replicas: 4
 
 volumes:
   postgres_data:

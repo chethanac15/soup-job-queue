@@ -1,21 +1,4 @@
-
-services:
+﻿services:
   worker:
-    build:
-      context: .
-      dockerfile: Dockerfile
-
-    init: true
-
-    restart: unless-stopped
-
-    environment:
-      NODE_ENV: development
-      DATABASE_URL: postgresql://postgres:postgres@host.docker.internal:5432/soup_queue
-
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-
-    depends_on:
-      postgres:
-        condition: service_healthy
+    deploy:
+      replicas: 8
